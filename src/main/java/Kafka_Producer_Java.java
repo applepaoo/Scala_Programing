@@ -23,6 +23,8 @@ public class Kafka_Producer_Java {
         Producer<String, String> producer = new KafkaProducer<>(props);
         System.out.println("準備傳送");
 
+        //20171002測試~
+
 
 
 
