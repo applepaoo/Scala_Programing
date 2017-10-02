@@ -42,7 +42,7 @@ public class Test_GetJson_Data {
 
         System.out.println("電表目前共有"+ k.length() + "隻");
 
-        
+
       /*  JSONArray k;
         JSONObject i = new JSONObject();
 
