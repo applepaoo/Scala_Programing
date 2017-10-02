@@ -28,11 +28,13 @@ public class Kafka_Producer_Java {
 
 
 
-          for (int i = 0; i < 100; i++) {
+          for (int i = 0; i < 88; i++) {
             System.out.println("傳送開始");
             producer.send(new ProducerRecord<String, String>("TEST", Integer.toString(i), Integer.toString(i)));
+
+            System.out.println(new ProducerRecord<String, String>("TEST", Integer.toString(i), Integer.toString(i)));
+
             System.out.println("傳送結束");
-           System.out.println(new ProducerRecord<String, String>("TEST", Integer.toString(i), Integer.toString(i)));
 
         }
 
