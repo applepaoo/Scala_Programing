@@ -24,6 +24,25 @@ public class Test_GetJson_Data {
 
         //在測試抓JSON的資料
 
+
+        JSONArray k;
+        JSONObject i = new JSONObject();
+
+        k = new JSONArray(PowerData);
+
+
+        for (int p=0; p<k.length(); p++){
+
+            i = k.getJSONObject(p);
+
+            System.out.print(i.getString("location") + ",");
+            System.out.println(i.getString("KW"));
+
+        }
+
+        System.out.println("電表目前共有"+ k.length() + "隻");
+
+        
       /*  JSONArray k;
         JSONObject i = new JSONObject();
 
@@ -42,22 +61,7 @@ public class Test_GetJson_Data {
             System.err.println("Error: " + e.getMessage());
         }*/
 
-        JSONArray k;
-        JSONObject i = new JSONObject();
 
-        k = new JSONArray(PowerData);
-
-
-        for (int p=0; p<k.length(); p++){
-
-            i = k.getJSONObject(p);
-
-            System.out.print(i.getString("location") + ",");
-            System.out.println(i.getString("KW"));
-
-        }
-
-        System.out.println("電表目前共有"+ k.length() + "隻");
 
     }
 
