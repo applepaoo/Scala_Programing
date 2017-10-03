@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.TimeZone;
 
 
 public class Test_GetJson_Data {
@@ -26,7 +29,7 @@ public class Test_GetJson_Data {
 
 
         JSONArray k;
-        JSONObject i = new JSONObject();
+        JSONObject i;
 
         k = new JSONArray(PowerData);
 
@@ -35,31 +38,22 @@ public class Test_GetJson_Data {
 
             i = k.getJSONObject(p);
 
+            //轉13
+            long unixSeconds = Long.parseLong(k.getJSONObject(p).getString("time_stamp"));
+            Date date = new Date(unixSeconds); // *1000 is to convert seconds to milliseconds
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // the format of your date
+            //sdf.setTimeZone(TimeZone.getTimeZone("GMT+8")); // give a timezone reference for formating (see comment at the bottom
+            String formattedDate = sdf.format(date);
+
+
             System.out.print(i.getString("location") + ",");
+            System.out.print(formattedDate + ",");
             System.out.println(i.getString("KW"));
 
         }
 
         System.out.println("電表目前共有"+ k.length() + "隻");
 
-
-      /*  JSONArray k;
-        JSONObject i = new JSONObject();
-
-        try {
-
-            k = new JSONArray(PowerData);
-
-            i = k.getJSONObject(0);
-
-            System.out.print(i.getString("location") + ",");
-            System.out.println(i.getString("KW"));
-
-
-
-        }catch(Exception e){
-            System.err.println("Error: " + e.getMessage());
-        }*/
 
 
 
