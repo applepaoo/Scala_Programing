@@ -47,8 +47,8 @@ public class Test_GetJson_Data {
 
 
             System.out.print(i.getString("location") + ",");
-            System.out.print(formattedDate + ",");
-            System.out.println(i.getString("KW"));
+            System.out.println(formattedDate + "," + i.getString("KW"));
+            //System.out.println(i.getString("KW"));
 
         }
 
