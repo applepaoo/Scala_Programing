@@ -51,6 +51,7 @@ public class Kafka_Producer_Java {
 
         k = new JSONArray(PowerData);
 
+        System.out.println("傳送開始");
 
         for (int p=0; p<k.length(); p++){
 
@@ -66,17 +67,17 @@ public class Kafka_Producer_Java {
 
             System.out.print(i.getString("location") + ",");
             System.out.println(formattedDate + "," + i.getString("KW"));
-            //System.out.println(i.getString("KW"));
 
-            System.out.println("傳送開始");
-            producer.send(new ProducerRecord<String, String>("TEST", i.getString("location"), formattedDate + "," + i.getString("KW")));
 
-            System.out.println(new ProducerRecord<String, String>("TEST", i.getString("location"), formattedDate + "," + i.getString("KW")));
+            producer.send(new ProducerRecord<String, String>("TEST", i.getString("location"), formattedDate + "," + i.getString("location") + "," + i.getString("KW")));
 
-            System.out.println("傳送結束");
+            System.out.println(new ProducerRecord<String, String>("TEST", i.getString("location"), formattedDate + "," + i.getString("location") + "," + i.getString("KW")));
+
+
 
         }
 
+        System.out.println("傳送結束");
 
          /* for (int i = 0; i < 88; i++) {
             System.out.println("傳送開始");
