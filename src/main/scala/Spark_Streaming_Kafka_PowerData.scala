@@ -1,6 +1,4 @@
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.streaming.kafka010.KafkaUtils
-import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 object Spark_Streaming_Kafka_PowerData extends App{
 
@@ -9,6 +7,7 @@ object Spark_Streaming_Kafka_PowerData extends App{
 
   val sc = new SparkContext(conf)
 
+/*
   val ssc = new StreamingContext(sc, Seconds(60))
 
   val topicMap = "TEST".split(":").map((_, 1)).toMap
@@ -24,6 +23,7 @@ object Spark_Streaming_Kafka_PowerData extends App{
   ssc.start()
 
   ssc.awaitTermination()
+*/
 
 
 }

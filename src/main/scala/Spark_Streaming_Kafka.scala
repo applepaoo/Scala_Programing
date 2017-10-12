@@ -1,6 +1,5 @@
 import org.apache.spark.SparkConf
-import org.apache.spark.streaming.kafka010.{ConsumerStrategies, KafkaUtils, LocationStrategies}
-import org.apache.spark.streaming.{Seconds, StreamingContext}
+
 
 
 object Spark_Streaming_Kafka extends App{
@@ -8,7 +7,7 @@ object Spark_Streaming_Kafka extends App{
   val conf = new SparkConf().setAppName("Spark_Streaming_Kafka")
     .setMaster("local[*]")
 
-  val ssc = new StreamingContext(conf, Seconds(60))
+/*  val ssc = new StreamingContext(conf, Seconds(60))
 
 
   val topics = List("TEST")
@@ -23,7 +22,7 @@ object Spark_Streaming_Kafka extends App{
   messages.print()
 
   ssc.start()
-  ssc.awaitTermination()
+  ssc.awaitTermination()*/
 
 /*  import org.apache.spark.streaming._
   import org.apache.spark.streaming.kafka._

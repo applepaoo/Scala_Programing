@@ -1,6 +1,3 @@
-import org.apache.spark.streaming.kafka010.KafkaUtils
-import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
-import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.SparkConf
 
@@ -19,7 +16,7 @@ object test_Spark_Streaming_Kafka extends App{
   val conf = new SparkConf().setAppName("Spark_Streaming_Kafka")
     .setMaster("local[*]")
 
-  val ssc = new StreamingContext(conf, Seconds(60))
+/*  val ssc = new StreamingContext(conf, Seconds(60))
 
   val topics = Array("topicA", "topicB")
   val stream = KafkaUtils.createDirectStream[String, String](
@@ -28,6 +25,6 @@ object test_Spark_Streaming_Kafka extends App{
     Subscribe[String, String](topics, kafkaParams)
   )
 
-  stream.map(record => (record.key, record.value))
+  stream.map(record => (record.key, record.value))*/
 
 }
