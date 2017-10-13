@@ -22,7 +22,7 @@ val group = "test-consumer-group"
 val lines = KafkaUtils.createStream(ssc, zkQuorum, group, topicMap).map(_._2)
 
 lines.print()
-lines.saveAsTextFiles("hdfs://140.128.98.31:8020/user/hive/warehouse/powerdata_minute")
+lines.saveAsTextFiles("hdfs://140.128.98.31:8020/user/hive/warehouse/powerdata_minute/")
 
 ssc.start()
 
