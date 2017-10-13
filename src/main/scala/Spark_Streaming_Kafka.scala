@@ -2,6 +2,8 @@ import org.apache.spark.SparkConf
 
 
 
+
+
 object Spark_Streaming_Kafka extends App{
 
   val conf = new SparkConf().setAppName("Spark_Streaming_Kafka")
@@ -24,8 +26,8 @@ object Spark_Streaming_Kafka extends App{
   ssc.start()
   ssc.awaitTermination()*/
 
-/*  import org.apache.spark.streaming._
-  import org.apache.spark.streaming.kafka._
+  import org.apache.spark.streaming._
+  import org.apache.spark.streaming.kafka010._
 
   val sc = new SparkConf().setAppName("SparkStreamingKakfaWordCount")
   val ssc = new StreamingContext(sc, Seconds(60))
@@ -38,7 +40,7 @@ object Spark_Streaming_Kafka extends App{
   lines.print()
 
   ssc.start()
-  ssc.awaitTermination()*/
+  ssc.awaitTermination()
 
 
 

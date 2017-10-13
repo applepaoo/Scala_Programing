@@ -1,9 +1,13 @@
+import com.google.common.eventbus.Subscribe
 import org.apache.kafka.common.serialization.StringDeserializer
-import org.apache.spark.SparkConf
+import org.apache.spark.streaming.kafka010.KafkaUtils
+import org.apache.spark.streaming.{Seconds, StreamingContext}
+import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.streaming.kafka010._
 
 
 object test_Spark_Streaming_Kafka extends App{
-
+/*
   val kafkaParams = Map[String, Object](
     "bootstrap.servers" -> "localhost:9092,anotherhost:9092",
     "key.deserializer" -> classOf[StringDeserializer],
@@ -16,10 +20,12 @@ object test_Spark_Streaming_Kafka extends App{
   val conf = new SparkConf().setAppName("Spark_Streaming_Kafka")
     .setMaster("local[*]")
 
-/*  val ssc = new StreamingContext(conf, Seconds(60))
+  val sc = new SparkContext(conf)
+
+  val ssc = new StreamingContext(sc, Seconds(60))
 
   val topics = Array("topicA", "topicB")
-  val stream = KafkaUtils.createDirectStream[String, String](
+  val stream = KafkaUtils.crea[String, String](
     streamingContext,
     PreferConsistent,
     Subscribe[String, String](topics, kafkaParams)
