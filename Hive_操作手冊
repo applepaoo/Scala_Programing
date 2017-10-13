@@ -2,8 +2,8 @@
 
 create external table PoweData_Minute(Date string, Name string, P double)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' ;
-//location 'hdfs://140.128.98.31:8020/user/hive/warehouse/TEST_External_Power_Table'
+//location 'hdfs://140.128.98.31:8020/user/hive/warehouse/powerdata_minute'
 
 匯入資料到表上(已HDFS為例)
 
-LOAD DATA INPATH 'hdfs://140.128.98.31:8020/user/hive/warehouse/TEST_PowerData/' INTO TABLE XXX;
+LOAD DATA INPATH 'hdfs://140.128.98.31:8020/user/hive/warehouse/powerdata_minute/' INTO TABLE XXX;
