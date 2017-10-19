@@ -1,8 +1,8 @@
 創建Hive表
 
 create external table PowerData_Minute(Date string, Name string, P double)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' ;
-location 'hdfs://140.128.98.31:8020/user/hive/warehouse/powerdata_minute/自取'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+location 'hdfs://140.128.98.31:8020/user/hive/warehouse/powerdata_minute/powerdata_minut_external_table';
 
 匯入資料到表上(已HDFS為例)
 
