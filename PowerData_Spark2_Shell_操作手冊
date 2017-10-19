@@ -9,7 +9,7 @@ import org.apache.spark.streaming._
 
 import org.apache.spark.streaming.kafka._
 
-val sc = new SparkConf().setAppName("SparkStreamingKakfaWordCount")
+//val sc = new SparkConf().setAppName("SparkStreamingKakfaWordCount")
 
 val ssc = new StreamingContext(sc, Seconds(60))
 
