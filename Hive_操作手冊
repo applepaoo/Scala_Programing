@@ -11,7 +11,7 @@ LOAD DATA INPATH 'hdfs://140.128.98.31:8020/user/hive/warehouse/powerdata_minute
 
 SELECT結果出來
 
-select * from powedata_minute
+select * from powedata_minute;
 
 依照時間排序
 
