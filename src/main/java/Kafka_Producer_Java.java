@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class PowerData_Producer {
+public class Kafka_Producer_Java {
 
     public static void main(String[] args) throws JSONException, IOException{
 
