@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class Kafka_Producer_Java {
+public class PowerData_Producer {
 
     public static void main(String[] args) throws JSONException, IOException{
 
@@ -69,27 +69,15 @@ public class Kafka_Producer_Java {
             System.out.println(formattedDate + "," + i.getString("KW"));
 
 
-            producer.send(new ProducerRecord<String, String>("TEST", i.getString("location"), formattedDate + "," + i.getString("location") + "," + i.getString("KW")));
+            producer.send(new ProducerRecord<String, String>("powerdata_minute", i.getString("location"), formattedDate + "," + i.getString("location") + "," + i.getString("KW")));
 
-            System.out.println(new ProducerRecord<String, String>("TEST", i.getString("location"), formattedDate + "," + i.getString("location") + "," + i.getString("KW")));
+            System.out.println(new ProducerRecord<String, String>("powerdata_minute", i.getString("location"), formattedDate + "," + i.getString("location") + "," + i.getString("KW")));
 
 
 
         }
 
         System.out.println("傳送結束");
-
-         /* for (int i = 0; i < 88; i++) {
-            System.out.println("傳送開始");
-            producer.send(new ProducerRecord<String, String>("TEST", Integer.toString(i), Integer.toString(i)));
-
-            System.out.println(new ProducerRecord<String, String>("TEST", Integer.toString(i), Integer.toString(i)));
-
-            System.out.println("傳送結束");
-
-        }*/
-
-
 
 
 
