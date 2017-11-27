@@ -11,5 +11,7 @@ object HdfsProcessData extends App{
 
   File1.sortBy(x => x).foreach(println)
 
+  HIHI
+
 
 }
