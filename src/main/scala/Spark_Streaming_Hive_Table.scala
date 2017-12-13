@@ -9,7 +9,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 
 
-object Spark_Streaming_Hive_Table {
+object Spark_Streaming_Hive_Table extends App{
 
   val conf = new SparkConf().setAppName("Simple Application")
   val sc = new SparkContext(conf)

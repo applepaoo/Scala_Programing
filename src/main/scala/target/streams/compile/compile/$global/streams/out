@@ -1,0 +1,52 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\HdfsProcessData.scala:1:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.{SparkConf, SparkContext}[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\HdfsProcessData.scala:5:18: not found: type SparkConf[0m
+[0m[[0m[31merror[0m] [0m[0m  val conf = new SparkConf().setAppName("HdfsProcessData")[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\HdfsProcessData.scala:8:16: not found: type SparkContext[0m
+[0m[[0m[31merror[0m] [0m[0m  val sc = new SparkContext(conf)[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:1:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.sql.Row[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:2:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.sql.types.{StringType, StructField, StructType}[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:3:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.streaming._[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:4:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.streaming.kafka.KafkaUtils[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:5:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.{SparkConf, SparkContext}[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:14:18: not found: type SparkConf[0m
+[0m[[0m[31merror[0m] [0m[0m  val conf = new SparkConf().setAppName("Simple Application")[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:15:16: not found: type SparkContext[0m
+[0m[[0m[31merror[0m] [0m[0m  val sc = new SparkContext(conf)[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:16:17: not found: type StreamingContext[0m
+[0m[[0m[31merror[0m] [0m[0m  val ssc = new StreamingContext(sc, Seconds(60)) //建立Streaming Context 接口[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:16:38: not found: value Seconds[0m
+[0m[[0m[31merror[0m] [0m[0m  val ssc = new StreamingContext(sc, Seconds(60)) //建立Streaming Context 接口[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:20:15: not found: value KafkaUtils[0m
+[0m[[0m[31merror[0m] [0m[0m  val lines = KafkaUtils.createStream(ssc, zkQuorum, group, topicMap).map(_._2) //接kafka串流，形成DStream (Spark Streaming專用格式)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:22:18: not found: value StructType[0m
+[0m[[0m[31merror[0m] [0m[0m  val smStruct = StructType( (0 to 2).toList.map( x => x.toString).map( y => StructField( y , StringType, true ) ) ) //為了下面dataframe 指定格式[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:22:78: not found: value StructField[0m
+[0m[[0m[31merror[0m] [0m[0m  val smStruct = StructType( (0 to 2).toList.map( x => x.toString).map( y => StructField( y , StringType, true ) ) ) //為了下面dataframe 指定格式[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:22:95: not found: value StringType[0m
+[0m[[0m[31merror[0m] [0m[0m  val smStruct = StructType( (0 to 2).toList.map( x => x.toString).map( y => StructField( y , StringType, true ) ) ) //為了下面dataframe 指定格式[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\Jeff\IdeaProjects\Scala_Programing\src\main\scala\Spark_Streaming_Hive_Table.scala:24:33: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0m  lazy val sqlContext = new org.apache.spark.sql.hive.HiveContext(sc) //慵懶化sqlcontext[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m17 errors found[0m
