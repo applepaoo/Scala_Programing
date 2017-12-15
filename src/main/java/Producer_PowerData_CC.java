@@ -83,9 +83,8 @@ public class Producer_PowerData_CC {
                 }else{
 
                     double v = i.getDouble("11")/i.getDouble("14")/i.getDouble("8");
-                    DecimalFormat df = new DecimalFormat("##.00");
+                    DecimalFormat df = new DecimalFormat("##.00"); //V值取小數點後兩位
                     v = Double.parseDouble(df.format(v));
-                    System.out.println(v);
 
                     producer.send(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
                             i.getString("1").substring(0,19) + "," //時間
