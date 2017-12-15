@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Producer_PowerData_CC {
     public static void main(String[] args) throws JSONException, IOException {
 
-      Properties props = new Properties();
+        Properties props = new Properties();
         props.put("bootstrap.servers", "140.128.98.31:9092");
         props.put("acks", "all");
         props.put("retries", 0);
@@ -30,7 +30,6 @@ public class Producer_PowerData_CC {
         props.put("auto.offset.reset", "earliest");
         Producer<String, String> producer = new KafkaProducer<>(props);
         System.out.println("準備傳送");
-
 
 
         //先抓網頁API的JSON
@@ -51,72 +50,72 @@ public class Producer_PowerData_CC {
         k = new JSONArray(PowerData_CC);//長度為18
 
 
-        for (int p=0; p<18; p++){
+        for (int p = 0; p < 18; p++) {
 
-                i = k.getJSONObject(p);
+            i = k.getJSONObject(p);
 
-                if (i.getDouble("11") == 0 || i.getDouble("14") == 0 || i.getDouble("8") == 0){
+            if (i.getDouble("11") == 0 || i.getDouble("14") == 0 || i.getDouble("8") == 0) {
 
-                    double v = 0;
+                double v = 0;
 
-                    producer.send(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
-                            i.getString("1").substring(0,19) + "," //時間
-                                    + i.getString("0") + "," //電表ID
-                                    + v + "," //V值
-                                    + i.getString("8")  + "," //I
-                                    + i.getString("14") + "," //PF
-                                    + i.getString("11") //P
+                producer.send(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
+                        i.getString("1").substring(0, 19) + "," //時間
+                                + i.getString("0") + "," //電表ID
+                                + v + "," //V值
+                                + i.getString("8") + "," //I
+                                + i.getString("14") + "," //PF
+                                + i.getString("11") //P
 
-                    ));
+                ));
 
-                    System.out.println(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
-                            i.getString("1").substring(0,19) + "," //時間
-                                    + i.getString("0") + "," //電表ID
-                                    + v + "," //V值
-                                    + i.getString("8")  + "," //I
-                                    + i.getString("14") + "," //PF
-                                    + i.getString("11") //P
+                System.out.println(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
+                        i.getString("1").substring(0, 19) + "," //時間
+                                + i.getString("0") + "," //電表ID
+                                + v + "," //V值
+                                + i.getString("8") + "," //I
+                                + i.getString("14") + "," //PF
+                                + i.getString("11") //P
 
-                    ));
-
-
-                }else{
-
-                    double v = i.getDouble("11")/i.getDouble("14")/i.getDouble("8");
-                    DecimalFormat df = new DecimalFormat("##.00"); //V值取小數點後兩位
-                    v = Double.parseDouble(df.format(v));
-
-                    producer.send(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
-                            i.getString("1").substring(0,19) + "," //時間
-                            + i.getString("0") + "," //電表ID
-                            + v + "," //V值
-                            + i.getString("8")  + "," //I
-                            + i.getString("14") + "," //PF
-                            + i.getString("11") //P
-
-                    ));
-
-                    System.out.println(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
-                            i.getString("1").substring(0,19) + "," //時間
-                                    + i.getString("0") + "," //電表ID
-                                    + v + "," //V值
-                                    + i.getString("8")  + "," //I
-                                    + i.getString("14") + "," //PF
-                                    + i.getString("11")  //P
-
-                    ));
+                ));
 
 
-                }
+            } else {
+
+                double v = i.getDouble("11") / i.getDouble("14") / i.getDouble("8");
+                DecimalFormat df = new DecimalFormat("##.00"); //V值取小數點後兩位
+                v = Double.parseDouble(df.format(v));
+
+                producer.send(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
+                        i.getString("1").substring(0, 19) + "," //時間
+                                + i.getString("0") + "," //電表ID
+                                + v + "," //V值
+                                + i.getString("8") + "," //I
+                                + i.getString("14") + "," //PF
+                                + i.getString("11") //P
+
+                ));
+
+                System.out.println(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
+                        i.getString("1").substring(0, 19) + "," //時間
+                                + i.getString("0") + "," //電表ID
+                                + v + "," //V值
+                                + i.getString("8") + "," //I
+                                + i.getString("14") + "," //PF
+                                + i.getString("11")  //P
+
+                ));
+
+
             }
+        }
 
-            int count_data = k.length()-1;
-            System.out.println("共傳送了" + count_data + "筆資料" );
+        int count_data = k.length() - 1;
+        System.out.println("共傳送了" + count_data + "筆資料");
         producer.close();
 
 
-        }
-
-
     }
+
+
+}
 

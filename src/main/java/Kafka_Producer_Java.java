@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class Kafka_Producer_Java {
 
-    public static void main(String[] args) throws JSONException, IOException{
+    public static void main(String[] args) throws JSONException, IOException {
 
         Properties props = new Properties();
         props.put("bootstrap.servers", "140.128.98.31:9092");
@@ -31,7 +31,6 @@ public class Kafka_Producer_Java {
         props.put("auto.offset.reset", "earliest");
         Producer<String, String> producer = new KafkaProducer<>(props);
         System.out.println("準備傳送");
-
 
 
         //先抓網頁API的JSON
@@ -53,7 +52,7 @@ public class Kafka_Producer_Java {
 
         System.out.println("傳送開始");
 
-        for (int p=0; p<k.length(); p++){
+        for (int p = 0; p < k.length(); p++) {
 
             i = k.getJSONObject(p);
 
@@ -74,19 +73,13 @@ public class Kafka_Producer_Java {
             System.out.println(new ProducerRecord<String, String>("powerdata_minute", i.getString("location"), formattedDate + "," + i.getString("location") + "," + i.getString("KW")));
 
 
-
         }
 
         System.out.println("傳送結束");
 
 
-
-
         producer.close();
         System.out.println("Message sent successfully");
-
-
-
 
 
     }

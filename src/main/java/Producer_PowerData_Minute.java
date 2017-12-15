@@ -31,7 +31,6 @@ public class Producer_PowerData_Minute {
         System.out.println("準備傳送");
 
 
-
         //先抓網頁API的JSON
 
         URLConnection connection = new URL("http://140.128.197.129:8080/rest/buildingMeter/powerUsage/").openConnection();
@@ -51,7 +50,7 @@ public class Producer_PowerData_Minute {
 
         System.out.println("傳送開始");
 
-        for (int p=0; p<k.length(); p++){
+        for (int p = 0; p < k.length(); p++) {
 
             i = k.getJSONObject(p);
 
@@ -95,7 +94,6 @@ public class Producer_PowerData_Minute {
                     + i.getString("total_pf")
 
 
-
             ));
 
             System.out.println(new ProducerRecord<String, String>("powerdata_minute", i.getString("location"), formattedDate + ","
@@ -127,19 +125,13 @@ public class Producer_PowerData_Minute {
             ));
 
 
-
         }
 
         System.out.println("傳送結束");
 
 
-
-
         producer.close();
         System.out.println("Message sent successfully");
-
-
-
 
 
     }
