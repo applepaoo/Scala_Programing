@@ -60,7 +60,7 @@ public class Producer_PowerData_CC {
                     double v = 0;
 
                     producer.send(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
-                            i.getString("1") + "," //時間
+                            i.getString("1").substring(0,19) + "," //時間
                                     + i.getString("0") + "," //電表ID
                                     + v + "," //V值
                                     + i.getString("8")  + "," //I
@@ -70,7 +70,7 @@ public class Producer_PowerData_CC {
                     ));
 
                     System.out.println(new ProducerRecord<String, String>("PowerData_CC", i.getString("0"),
-                            i.getString("1") + "," //時間
+                            i.getString("1").substring(0,19) + "," //時間
                                     + i.getString("0") + "," //電表ID
                                     + v + "," //V值
                                     + i.getString("8")  + "," //I
