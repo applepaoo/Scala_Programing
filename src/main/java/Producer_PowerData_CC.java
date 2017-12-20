@@ -50,7 +50,7 @@ public class Producer_PowerData_CC {
         k = new JSONArray(PowerData_CC);//長度為18
 
 
-        for (int p = 0; p < 18; p++) {
+        for (int p = 0; p < k.length()-1 ; p++) {
 
             i = k.getJSONObject(p);
 
