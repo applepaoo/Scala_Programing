@@ -54,6 +54,8 @@ public class Producer_PowerData_CC {
 
             i = k.getJSONObject(p);
 
+            //V=p/PF/I; 必須判斷p, PF, I
+
             if (i.getDouble("11") == 0 || i.getDouble("14") == 0 || i.getDouble("8") == 0) {
 
                 double v = 0;

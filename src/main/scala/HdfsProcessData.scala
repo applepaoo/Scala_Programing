@@ -7,7 +7,7 @@ object HdfsProcessData extends App{
 
   val sc = new SparkContext(conf)
 
-  val File1 = sc.textFile("hdfs://140.128.98.31:8020/user/hive/warehouse/powerdaily/part-m-00000")
+  val File1 = sc.textFile("hdfs://140.128.98.31:8020/user/hive/warehouse/123.txt")
 
   File1.sortBy(x => x).foreach(println)
 
