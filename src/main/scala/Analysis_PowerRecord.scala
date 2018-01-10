@@ -18,5 +18,5 @@ object Analysis_PowerRecord extends App{
     .enableHiveSupport()
     .getOrCreate()
 
-  //spark.sql("show tables").show()
+  spark.sql("show tables").show()
 }
