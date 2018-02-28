@@ -21,9 +21,11 @@ object PowerAnalyze_2 extends  App{
 
   for (i <- 0 to array2.length-2){
     if(array2(i)(0).substring(1,11).toLong - array2(i+1)(0).substring(1,11).toLong > 600){
-      println(array2(i)(0) + "發生斷電!!" + " 電錶ID為" + )
+      println(array2(i)(0) + "發生斷電!!" + " 電錶ID為" + array2(i)(1).substring(0, array2(0)(1).length-1))
     }
   }
+
+
 
 
 }
