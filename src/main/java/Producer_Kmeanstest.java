@@ -68,7 +68,7 @@ public class Producer_Kmeanstest {
 
             producer.send(new ProducerRecord<String, String>("kmeanstest", i.getString("location"), formattedDate + ","
                     + i.getString("location") + ","
-                    + i.getString("KW") + ","
+                    + i.getString("KW")
 
 
 
@@ -76,7 +76,7 @@ public class Producer_Kmeanstest {
 
             System.out.println(new ProducerRecord<String, String>("kmeanstest", i.getString("location"), formattedDate + ","
                     + i.getString("location") + ","
-                    + i.getString("KW") + ","
+                    + i.getString("KW")
 
             ));
 
