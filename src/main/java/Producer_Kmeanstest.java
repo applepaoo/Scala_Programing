@@ -50,7 +50,7 @@ public class Producer_Kmeanstest {
 
         System.out.println("傳送開始");
 
-        for (int p = 0; p < k.length(); p++) {
+       int p = 0;
 
             i = k.getJSONObject(p);
 
@@ -66,22 +66,18 @@ public class Producer_Kmeanstest {
             //System.out.println(formattedDate + "," + i.getString("KW"));
 
 
-            producer.send(new ProducerRecord<String, String>("kmeanstest", i.getString("location"), formattedDate + ","
-                    + i.getString("location") + ","
-                    + i.getString("KW")
+            producer.send(new ProducerRecord<String, String>("kmeanstest", i.getString("location"), i.getString("KW")
 
 
 
             ));
 
-            System.out.println(new ProducerRecord<String, String>("kmeanstest", i.getString("location"), formattedDate + ","
-                    + i.getString("location") + ","
-                    + i.getString("KW")
+            System.out.println(new ProducerRecord<String, String>("kmeanstest", i.getString("location"), i.getString("KW")
 
             ));
 
 
-        }
+
 
         System.out.println("傳送結束");
 

@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e18dbca5-0a17-459b-80ff-db14739c4f2d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Producer_Kmeanstest.java" afterPath="$PROJECT_DIR$/src/main/java/Producer_Kmeanstest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -49,8 +50,8 @@
       <file leaf-file-name="Producer_PowerData_Minute.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Producer_PowerData_Minute.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2750">
-              <caret line="138" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+            <state relative-caret-position="-638">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,21 +92,11 @@
       <file leaf-file-name="Producer_Kmeanstest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Producer_Kmeanstest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="418">
+              <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Producer_PowerData_CC.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Producer_PowerData_CC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2200">
-              <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -123,6 +114,7 @@
     <findStrings>
       <find>for \(int i \= 0\; i \&lt; 88\; i\+\+\) \{\n            System\.out\.println\(\&quot;傳送開始\&quot;\)\;\n            producer\.send\(new ProducerRecord\&lt;String\, String\&gt;\(\&quot;TEST\&quot;\, Integer\.toString\(i\)\, Integer\.toString\(i\)\)\)\;\n\n           System\.out\.println\(new ProducerRecord\&lt;String\, String\&gt;\(\&quot;TEST\&quot;\, Integer\.toString\(i\)\, Integer\.toString\(i\)\)\)\;\n\n              System\.out\.println\(\&quot;傳送結束\&quot;\)\;\n\n        \}</find>
       <find>import org\.apache\.spark\.sql\.SparkSession\n\nobject Power_Analysis extends App\{\n\n  val spark \= SparkSession\n    \.builder\(\)\n    \.appName\(\&quot;Spark Hive Example\&quot;\)\n      \.master\(\&quot;\&quot;\)\n    \.config\(\&quot;spark\.sql\.warehouse\.dir\&quot;\, \&quot;hdfs\:\/\/140\.128\.98\.31\:8020\/user\/hive\/warehouse\/\&quot;\)\n    \.enableHiveSupport\(\)\n    \.getOrCreate\(\)\n\}\n</find>
+      <find>import org\.apache\.kafka\.clients\.producer\.KafkaProducer\;\nimport org\.apache\.kafka\.clients\.producer\.Producer\;\nimport org\.apache\.kafka\.clients\.producer\.ProducerRecord\;\nimport org\.codehaus\.jettison\.json\.JSONArray\;\nimport org\.codehaus\.jettison\.json\.JSONException\;\nimport org\.codehaus\.jettison\.json\.JSONObject\;\n\nimport java\.io\.IOException\;\nimport java\.net\.URL\;\nimport java\.net\.URLConnection\;\nimport java\.text\.SimpleDateFormat\;\nimport java\.util\.Date\;\nimport java\.util\.Properties\;\nimport java\.util\.Scanner\;\n\npublic class Producer_Kmeanstest \{\n    public static void main\(String\[\] args\) throws JSONException\, IOException \{\n\n        Properties props \= new Properties\(\)\;\n        props\.put\(\&quot;bootstrap\.servers\&quot;\, \&quot;140\.128\.98\.31\:9092\&quot;\)\;\n        props\.put\(\&quot;acks\&quot;\, \&quot;all\&quot;\)\;\n        props\.put\(\&quot;retries\&quot;\, 0\)\;\n        props\.put\(\&quot;batch\.size\&quot;\, 16384\)\;\n        props\.put\(\&quot;linger\.ms\&quot;\, 1\)\;\n        props\.put\(\&quot;buffer\.memory\&quot;\, 33554432\)\;\n        props\.put\(\&quot;key\.serializer\&quot;\, \&quot;org\.apache\.kafka\.common\.serialization\.StringSerializer\&quot;\)\;\n        props\.put\(\&quot;value\.serializer\&quot;\, \&quot;org\.apache\.kafka\.common\.serialization\.StringSerializer\&quot;\)\;\n        props\.put\(\&quot;enable\.auto\.commit\&quot;\, \&quot;false\&quot;\)\;\n        props\.put\(\&quot;auto\.offset\.reset\&quot;\, \&quot;earliest\&quot;\)\;\n        Producer\&lt;String\, String\&gt; producer \= new KafkaProducer\&lt;\&gt;\(props\)\;\n        System\.out\.println\(\&quot;準備傳送\&quot;\)\;\n\n\n        \/\/先抓網頁API的JSON\n\n        URLConnection connection \= new URL\(\&quot;http\:\/\/140\.128\.197\.129\:8080\/rest\/buildingMeter\/powerUsage\/\&quot;\)\.openConnection\(\)\;\n        Scanner scanner \= new Scanner\(connection\.getInputStream\(\)\)\;\n\n        String PowerData \= scanner\.useDelimiter\(\&quot;\\\\A\&quot;\)\.next\(\)\;\n        System\.out\.println\(PowerData\)\;\n\n\n        \/\/在測試抓JSON的資料\n\n\n        JSONArray k\;\n        JSONObject i\;\n\n        k \= new JSONArray\(PowerData\)\;\n\n        System\.out\.println\(\&quot;傳送開始\&quot;\)\;\n\n       int p \= 0\; \n\n            i \= k\.getJSONObject\(p\)\;\n\n            \/\/轉13\n            long unixSeconds \= Long\.parseLong\(k\.getJSONObject\(p\)\.getString\(\&quot;time_stamp\&quot;\)\)\;\n            Date date \= new Date\(unixSeconds\)\; \/\/ \*1000 is to convert seconds to milliseconds\n            SimpleDateFormat sdf \= new SimpleDateFormat\(\&quot;yyyy\-MM\-dd HH\:mm\:ss\&quot;\)\; \/\/ the format of your date\n            \/\/sdf\.setTimeZone\(TimeZone\.getTimeZone\(\&quot;GMT\+8\&quot;\)\)\; \/\/ give a timezone reference for formating \(see comment at the bottom\n            String formattedDate \= sdf\.format\(date\)\;\n\n\n            \/\/System\.out\.print\(i\.getString\(\&quot;location\&quot;\) \+ \&quot;\,\&quot;\)\;\n            \/\/System\.out\.println\(formattedDate \+ \&quot;\,\&quot; \+ i\.getString\(\&quot;KW\&quot;\)\)\;\n\n\n            producer\.send\(new ProducerRecord\&lt;String\, String\&gt;\(\&quot;kmeanstest\&quot;\, i\.getString\(\&quot;location\&quot;\)\, formattedDate \+ \&quot;\,\&quot;\n                    \+ i\.getString\(\&quot;location\&quot;\) \+ \&quot;\,\&quot;\n                    \+ i\.getString\(\&quot;KW\&quot;\)\n\n\n\n            \)\)\;\n\n            System\.out\.println\(new ProducerRecord\&lt;String\, String\&gt;\(\&quot;kmeanstest\&quot;\, i\.getString\(\&quot;location\&quot;\)\, formattedDate \+ \&quot;\,\&quot;\n                    \+ i\.getString\(\&quot;location\&quot;\) \+ \&quot;\,\&quot;\n                    \+ i\.getString\(\&quot;KW\&quot;\)\n\n            \)\)\;\n\n\n        \n\n        System\.out\.println\(\&quot;傳送結束\&quot;\)\;\n\n\n        producer\.close\(\)\;\n        System\.out\.println\(\&quot;Message sent successfully\&quot;\)\;\n\n\n    \}\n\}\n</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Jeff\IdeaProjects\Scala_Programing</dir>
@@ -216,10 +208,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -240,7 +232,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Producer_PowerData_CC">
+  <component name="RunManager" selected="Application.Producer_Kmeanstest">
     <configuration name="Analysis_PowerRecord" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Analysis_PowerRecord" />
@@ -401,8 +393,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Producer_PowerData_CC" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Producer_Kmeanstest" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Producer_Kmeanstest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Producer_PowerData_CC" />
         <item index="2" class="java.lang.String" itemvalue="Application.PowerAnalyze_2" />
         <item index="3" class="java.lang.String" itemvalue="Application.HdfsProcessData" />
         <item index="4" class="java.lang.String" itemvalue="Application.Analysis_PowerRecord" />
@@ -458,19 +450,21 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35543478" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11874106" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50208336" sideWeight="0.5090618" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11304348" sideWeight="0.49093816" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2630435" sideWeight="0.49093816" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36970338" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18017058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55508476" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -481,10 +475,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35543478" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -737,28 +729,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PowerAnalyze_2.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Producer_PowerData_Minute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2750">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Kafka_Producer_Java.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1342">
           <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PowerAnalyze_2.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -771,10 +753,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Producer_PowerData_Minute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-638">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Producer_Kmeanstest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="418">
+          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
