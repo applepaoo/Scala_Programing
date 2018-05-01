@@ -18,3 +18,5 @@ libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % "2.2
 libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-assembly" % "1.6.3"
 
 libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % "2.0.0"
+
+libraryDependencies += "org.apache.hbase" % "hbase" % "1.2.0" pomOnly()
