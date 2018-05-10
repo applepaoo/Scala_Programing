@@ -50,19 +50,6 @@ object HoltWinters_Date extends App {
   println("現在日期:" + getNowDate() + " 星期" + day)
   println("上週日期:" + sdf.format(cal.getTime))
 
-  /*
-    if (day == 6 || day == 7 || day == 1 || day == 2) {
-      var sqlDate = "'" + sdf.format(cal.getTime) + "'"
-      var sqlDate_1 = "'" + sdf.format(cal_1.getTime) + "'"
-      var sqlQuery = "select `p`/1000 as x from PowerHour_test where `Meter_id` = 'LIB-4' and `p`/1000 > 10 and `date` in " + "(" + sqlDate_1 + sqlDate + ")"
-      println(sqlDate)
-      println(sqlQuery)
-
-    } else {
-      var sqlDate = " '" + getNowDate() + "'"
-      var sqlQuery = "select `p`/1000 as x from PowerHour_test where `Meter_id` = 'LIB-4' and `p`/1000 > 10 and `date` like" + sqlDate
-      println(sqlQuery)
-    }*/
 
   day match {
     case 1 =>
